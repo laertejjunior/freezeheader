@@ -1,0 +1,166 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-family:"Trebuchet MS", "Myriad Pro", Arial, sans-serif;
+	font-size:14px;
+	background:#fefefe;
+	color:#333;
+	text-shadow:1px 1px 1px #fff;
+	overflow-x:hidden;
+}
+h1{
+	font-size:30px;
+	color:#666;
+}
+h2{
+	font-size:20px;
+	padding:10px 0px 10px 0px;
+	margin:15px 0px 20px 0px;
+}
+a{
+	color:#555;
+	text-decoration:none;
+}
+a:hover{
+	color:#222;
+}
+p{
+	padding:5px 0px;
+}
+.wrapper{
+	width:960px;
+	margin:20px auto;
+}
+.clear{
+	clear:both;
+}
+
+    /* ----------->>> GridView <<<----------*/
+        .gridView
+        {
+            width: 100%;
+            clear: both;
+            margin: 10px 0;
+            border: medium none !important;
+            border-collapse: collapse;
+        }
+        .gridView tr td
+        {
+            vertical-align: top;
+        }
+        .gridView thead tr, .footer
+        {
+            font: bold 11px Arial;
+            vertical-align: middle;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        /* --->>> HeaderStyle (cabeçalho) <<<---*/
+        .gridView thead tr
+        {
+            color: #333;
+            background: #fff url(../images/bg-header-grid.png) bottom repeat-x;
+            vertical-align: middle;
+            height: 25px;
+        }
+        .gridView thead tr th
+        {
+            border-top: 1px solid #E2E6E6;
+            border-bottom: 3px solid #E5E5E5;
+            vertical-align: middle;
+        }
+        .gridView thead tr a
+        {
+            font: bold 11px Arial, Verdana;
+            color: #333;
+            padding: 0 0 0 10px;
+            text-decoration: underline;
+            background: url(../images/Icones/ico-ordem.gif) left no-repeat;
+            vertical-align: middle;
+        }
+        .gridView thead tr a:hover
+        {
+            color: #06c;
+            background: url(../images/Icones/ico-ordem-hover.gif) left no-repeat;
+        }
+        
+        /* ---->>> FooterStyle (rodapé) <<<------*/
+        .footer
+        {
+            height: 20px;
+            width: auto;
+            margin: 0 auto;
+            text-align: center;
+            padding: 5px;
+        }
+        /*PagerStyle*/
+        .footer a, .footer span
+        {
+            color: #555;
+            padding: 2px 6px 2px 6px;
+            border: 1px solid #bcbcbc;
+            background: #F1F1F1 url(../images/bg-pg.png) bottom repeat-x;
+            text-decoration: none;
+        }
+        .footer a:hover
+        {
+            color: #C40B17;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #890812;
+        }
+        .footer span
+        {
+            color: #fff;
+            background: #D7403F url(../images/bg-pg-focus.png) bottom repeat-x;
+            border: 1px solid #890812;
+        }
+        
+        
+        /* ------------>>> Grid <<<--------------*/
+        .grid, .gridAlternada, .gridDestacada
+        {
+            font: 11px Arial,Verdana;
+            text-align: left;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .grid:hover, .gridAlternada:hover, .gridDestacada:hover
+        {
+            color: #000;
+            background: #D4E5F6 url(../images/bg-dia.png) 0 0 repeat-x;
+        }
+        
+        .grid
+        {
+            background-color: #fff;
+        }
+        /*RowStyle*/
+        .gridAlternada
+        {
+            background-color: #eee;
+        }
+        /*AlternatingRowStyle*/
+        .gridDestacada
+        {
+            background-color: #FFE082;
+            color: #333;
+        }
+        /*SelectedRowStyle / EditRowStyle*/
+        
+        
+        /* -------->>> Link Grid's <<<-----------*/
+        .grid a, .gridAlternada a, .gridDestacada a
+        {
+            color: #384249;
+            text-decoration: none;
+        }
+        .grid a:hover, .gridAlternada a:hover, .gridDestacada a:hover
+        {
+            color: #000;
+            text-decoration: underline;
+        }
+   
