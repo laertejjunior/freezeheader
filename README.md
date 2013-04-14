@@ -38,7 +38,7 @@ in Internet Explorer on Windows 7 for instance (because of the wrong MIME type).
 
 <h2>
 <a name="demo" class="anchor" href="#demo"><span class="mini-icon mini-icon-link"></span></a>Demo</h2>
-<p><strong>Do not include the script directly from GitHub (<a href="http://laertejjunior.github.io/freezeheader/">http://laertejjunior.github.io/freezeheader/</a>).</strong> </p>
+<p><strong><a href="http://laertejjunior.github.io/freezeheader/">http://laertejjunior.github.io/freezeheader/</a>)</strong> </p>
 <h2>
 <a name="development" class="anchor" href="#development"><span class="mini-icon mini-icon-link"></span></a>Development</h2>
 
