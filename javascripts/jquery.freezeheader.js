@@ -99,10 +99,10 @@ Version: 1.0.1
             tabela.append('<thead>' + conteudoHeader.html() + '</thead>');
            
 		   container.append(tabela);
-            container.width(conteudoHeader.outerWidth());
+            container.width(conteudoHeader.width());
             container.height(conteudoHeader.height);
             container.find('th').each(function (index) {
-                var cellWidth = grid.find('th').eq(index).outerWidth();
+                var cellWidth = grid.find('th').eq(index).width();
                 $(this).css('width', cellWidth);
             });
 
