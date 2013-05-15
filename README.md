@@ -13,9 +13,6 @@ jquery.freezeheader
 <pre><code>&lt;script src="/path/to/jquery.freezeheader.js"&gt;&lt;/script&gt;
 </code></pre>
 
-<p><strong>Do not include the script directly from GitHub (<a href="http://raw.github.com/...">http://raw.github.com/...</a>).</strong> The file is being served as text/plain and as such being blocked
-in Internet Explorer on Windows 7 for instance (because of the wrong MIME type). Bottom line: GitHub is not a CDN.</p>
-
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="mini-icon mini-icon-link"></span></a>Usage</h2>
