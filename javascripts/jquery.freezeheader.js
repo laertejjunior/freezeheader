@@ -1,7 +1,8 @@
 /* ------------------------------------------------------------------------
 Class: freezeHeader
 Use:freeze header row in html table
-Example:  $('#tableid').freezeHeader();
+Example 1:  $('#tableid').freezeHeader();
+Example 2:  $("#tableid").freezeHeader({ 'height': '300px' });
 Author: Laerte Mercier Junior
 Version: 1.0.2
 -------------------------------------------------------------------------*/
@@ -64,7 +65,12 @@ Version: 1.0.2
         }
 
         function limiteAlcancado(params) {
-            return ($(document).scrollTop() > conteudoHeader.offset().top && $(document).scrollTop() < (grid.height() - conteudoHeader.height()) + conteudoHeader.offset().top);
+            if (params && params.height !== undefined) {
+                return (conteudoHeader.offset().top <= obj.offset().top);
+            }
+            else {
+                return ($(document).scrollTop() > conteudoHeader.offset().top && $(document).scrollTop() < (grid.height() - conteudoHeader.height()) + conteudoHeader.offset().top);
+            }
         }
 
         function cloneHeaderRow() {
