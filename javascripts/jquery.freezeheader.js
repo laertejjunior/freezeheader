@@ -3,7 +3,7 @@ Class: freezeHeader
 Use:freeze header row in html table
 Example:  $('#tableid').freezeHeader();
 Author: Laerte Mercier Junior
-Version: 1.0.1
+Version: 1.0.2
 -------------------------------------------------------------------------*/
 (function ($) {
     $.fn.freezeHeader = function (params) {
@@ -14,91 +14,75 @@ Version: 1.0.1
         var conteudoHeader;
         var openDivScroll = '';
         var closeDivScroll = '';
-         
 
         if (params && params.height !== undefined) {
             divScroll = '<div id="hdScroll' + idObj + '" style="height: ' + params.height + '; overflow-y: scroll">';
             closeDivScroll = '</div>';
         }
-        
+
         grid = $('table[id$="' + idObj + '"]');
         conteudoHeader = grid.find('thead');
 
-		
-
-
-    
-            if (params && params.height !== undefined) {
-                if ($('#hdScroll' + idObj).length == 0) {
-                    grid.wrapAll(divScroll);
-                }
+        if (params && params.height !== undefined) {
+            if ($('#hdScroll' + idObj).length == 0) {
+                grid.wrapAll(divScroll);
             }
+        }
 
+        var obj = params && params.height !== undefined
+           ? $('#hdScroll' + idObj)
+           : $(window);
 
-            var obj = params && params.height !== undefined
-               ? $('#hdScroll' + idObj)
-               : $(window);
-
-
-            if ($('#hd' + idObj).length == 0) {
-                grid.before('<div id="hd' + idObj + '"></div>');
+        if ($('#hd' + idObj).length == 0) {
+            grid.before('<div id="hd' + idObj + '"></div>');
         }
 
         obj.scroll(function () { freezeHeader(); })
 
         function freezeHeader() {
-           
+
             if ($('table[id$="' + idObj + '"]').length > 0) {
 
-
-      
                 container = $('#hd' + idObj);
-			//	console.log(conteudoHeader.offset());
                 if (conteudoHeader.offset() != null) {
                     if (limiteAlcancado(params)) {
-                        
-						if (!copiedHeader) {
+                        if (!copiedHeader) {
                             cloneHeaderRow(grid);
                             copiedHeader = true;
                         }
                     }
                     else {
+
                         container.css("visibility", "hidden");
                         container.css("top", "0px");
                         container.width(0);
                         copiedHeader = false;
+
                     }
                 }
             }
         }
 
         function limiteAlcancado(params) {
-			
-            if (params && params.height !== undefined) {
-                return (conteudoHeader.offset().top <= obj.offset().top);
-            }
-            else {
-                return ($(document).scrollTop() > conteudoHeader.offset().top && $(document).scrollTop() < grid.height() + conteudoHeader.offset().top);
-            }
+            return ($(document).scrollTop() > conteudoHeader.offset().top && $(document).scrollTop() < (grid.height() - conteudoHeader.height()) + conteudoHeader.offset().top);
         }
 
         function cloneHeaderRow() {
-		    container.html('');
+            container.html('');
             container.val('');
             var tabela = $('<table style="margin: 0 0;"></table>');
             var atributos = grid.prop("attributes");
 
             $.each(atributos, function () {
-                console.log($().jquery);
-				if (this.name != "id")
-				{
+
+                if (this.name != "id") {
                     tabela.attr(this.name, this.value);
-					}
+                }
             });
-			
+
             tabela.append('<thead>' + conteudoHeader.html() + '</thead>');
-           
-		   container.append(tabela);
+
+            container.append(tabela);
             container.width(conteudoHeader.width());
             container.height(conteudoHeader.height);
             container.find('th').each(function (index) {
