@@ -54,9 +54,16 @@ Version: 1.0.2
                     }
                     else {
 
-                        container.css("visibility", "hidden");
-                        container.css("top", "0px");
-                        container.width(0);
+                        if (($(document).scrollTop() > conteudoHeader.offset().top)) {
+                            container.css("position", "absolute");
+                            container.css("top", (grid.find("tr:last").offset().top - conteudoHeader.height()) + "px");
+                        }
+                        else {
+                            container.css("visibility", "hidden");
+                            container.css("top", "0px");
+                            container.width(0);
+                        }
+
                         copiedHeader = false;
 
                     }
@@ -69,7 +76,7 @@ Version: 1.0.2
                 return (conteudoHeader.offset().top <= obj.offset().top);
             }
             else {
-                return ($(document).scrollTop() > conteudoHeader.offset().top && $(document).scrollTop() < (grid.height() - conteudoHeader.height()) + conteudoHeader.offset().top);
+                return ($(document).scrollTop() > conteudoHeader.offset().top && $(document).scrollTop() < (grid.height() - conteudoHeader.height() - grid.find("tr:last").height()) + conteudoHeader.offset().top);
             }
         }
 
@@ -101,8 +108,10 @@ Version: 1.0.2
             if (params && params.height !== undefined) {
                 container.css("top", obj.offset().top + "px");
                 container.css("position", "absolute");
-            } else
+            } else {
+                container.css("top", "0px");
                 container.css("position", "fixed");
+            }
         }
     };
 })(jQuery);
