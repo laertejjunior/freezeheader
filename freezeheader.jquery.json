@@ -3,12 +3,12 @@
     "title": "jQuery freezeheader",
     "description": "A simple jquery plugin to freeze header row in html table.",
     "keywords": [
-      "Feezeheader",
+      "Freezeheader",
         "Header",
         "table",
 	"fixed"
      ],
-    "version": "1.0.2",
+    "version": "1.0.3",
     "author": {
         "name": "Laerte Mercier Junior",
         "url": "https://github.com/laertejjunior/"
