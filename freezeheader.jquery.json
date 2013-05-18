@@ -6,9 +6,8 @@
       "Feezeheader",
         "Header",
         "table",
-		"fixed",
-		"fixed header"
-    ],
+	"fixed"
+     ],
     "version": "1.0.2",
     "author": {
         "name": "Laerte Mercier Junior",
