@@ -4,7 +4,7 @@ Use:freeze header row in html table
 Example 1:  $('#tableid').freezeHeader();
 Example 2:  $("#tableid").freezeHeader({ 'height': '300px' });
 Author: Laerte Mercier Junior
-Version: 1.0.2
+Version: 1.0.3
 -------------------------------------------------------------------------*/
 (function ($) {
     $.fn.freezeHeader = function (params) {
