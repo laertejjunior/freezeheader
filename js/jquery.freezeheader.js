@@ -6,7 +6,7 @@ Example 2:  $("#tableid").freezeHeader({ 'height': '300px' });
 Example 3:  $("table").freezeHeader();
 Example 4:  $(".table2").freezeHeader();
 Author: Laerte Mercier Junior
-Version: 1.0.4
+Version: 1.0.5
 -------------------------------------------------------------------------*/
 (function ($) {
     var TABLE_ID = 0;
