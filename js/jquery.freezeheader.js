@@ -36,6 +36,14 @@ Version: 1.0.5
 
                 obj.header = obj.grid.find('thead');
 
+				// if NOT exist element thead
+				if(obj.header.length == 0) {					
+					createHeader(obj);
+
+					// set new thead
+					obj.header = obj.grid.find('thead');
+				}
+				
                 if (params && params.height !== undefined) {
                     if ($('#hdScroll' + obj.id).length == 0) {
                         obj.grid.wrapAll(obj.divScroll);
@@ -100,7 +108,8 @@ Version: 1.0.5
                     tabela.attr(this.name, this.value);
                 }
             });
-
+			
+			console.log(obj.header);
             tabela.append('<thead>' + obj.header.html() + '</thead>');
 
             obj.container.append(tabela);
@@ -121,6 +130,22 @@ Version: 1.0.5
                 obj.container.css("position", "fixed");
             }
         }
+		
+		// create header when NOT exist element thead in table
+		function createHeader(obj) {
+			
+			// get all th in table
+			var selector = "#" + obj.id + " tr:has(th)";	
+
+			// wrap all th in new element thead
+			$(selector).wrapAll(document.createElement("thead"));
+			
+			//¨cut¨ new element thead
+            header = $( "#" +  obj.id + " thead").detach();
+			
+			if($("#" + obj.id + " tbody").length > 0)				
+				$(header).insertBefore($( "#" + obj.id + " tbody").first());				
+		}
 
         return this.each(function (i, e) {
             freezeHeader($(e));
