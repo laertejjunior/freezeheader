@@ -40,7 +40,7 @@ Version: 1.0.5
 				if(obj.header.length == 0) {					
 					createHeader(obj);
 
-					// set new thead
+					// set new thead 
 					obj.header = obj.grid.find('thead');
 				}
 				
