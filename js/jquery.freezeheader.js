@@ -5,8 +5,8 @@ Example 1:  $('#tableid').freezeHeader();
 Example 2:  $("#tableid").freezeHeader({ 'height': '300px' });
 Example 3:  $("table").freezeHeader();
 Example 4:  $(".table2").freezeHeader();
-Author: Laerte Mercier Junior
-Version: 1.0.5
+Author(s): Laerte Mercier Junior, Larry A. Hendrix
+Version: 1.0.6
 -------------------------------------------------------------------------*/
 (function ($) {
     var TABLE_ID = 0;
@@ -43,11 +43,13 @@ Version: 1.0.5
                 }
 
                 obj.scroller = params && params.height !== undefined
-				   ? $('#hdScroll' + obj.id)
-				   : $(window);
+                   ? $('#hdScroll' + obj.id)
+                   : $(window);
 
+                if (params && params.scrollListenerEl !== undefined) {
+                    obj.scroller = params.scrollListenerEl;
+                }
                 obj.scroller.on('scroll', function () {
-
                     if ($('#hd' + obj.id).length == 0) {
                         obj.grid.before('<div id="hd' + obj.id + '"></div>');
                     }
@@ -81,7 +83,7 @@ Version: 1.0.5
         }
 
         function limiteAlcancado(obj, params) {
-            if (params && params.height !== undefined) {
+            if (params && (params.height !== undefined || params.scrollListenerEl !== undefined)) {
                 return (obj.header.offset().top <= obj.scroller.offset().top);
             }
             else {
@@ -116,6 +118,10 @@ Version: 1.0.5
             if (params && params.height !== undefined) {
                 obj.container.css("top", obj.scroller.offset().top + "px");
                 obj.container.css("position", "absolute");
+            } else if (params && params.scrollListenerEl!== undefined) { 
+                obj.container.css("top", obj.scroller.find("thead > tr").innerHeight() + "px");
+                obj.container.css("position", "absolute");
+                obj.container.css("z-index", "2");
             } else {
                 obj.container.css("top", "0px");
                 obj.container.css("position", "fixed");
