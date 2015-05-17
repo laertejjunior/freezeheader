@@ -26,14 +26,18 @@ Version: 1.0.6
                     divScroll: null,
                     openDivScroll: null,
                     closeDivScroll: null,
-                    scroller: null
+                    scroller: null,
+                    offsetTop:0
                 };
 
                 if (params && params.height !== undefined) {
                     obj.divScroll = '<div id="hdScroll' + obj.id + '" style="height: ' + params.height + '; overflow-y: scroll">';
                     obj.closeDivScroll = '</div>';
                 }
-
+                
+                if (params && params.offsetTop !== undefined) {
+                    offsetTop=params.offsetTop;
+                }
                 obj.header = obj.grid.find('thead');
 
                 if (params && params.height !== undefined) {
@@ -68,6 +72,7 @@ Version: 1.0.6
                             if (($(document).scrollTop() > obj.header.offset().top)) {
                                 obj.container.css("position", "absolute");
                                 obj.container.css("top", (obj.grid.find("tr:last").offset().top - obj.header.height()) + "px");
+                                obj.container.css("top", (obj.grid.find("tr:last").offset().top - obj.header.height()) + "px");
                             }
                             else {
                                 obj.container.css("visibility", "hidden");
@@ -87,7 +92,7 @@ Version: 1.0.6
                 return (obj.header.offset().top <= obj.scroller.offset().top);
             }
             else {
-                return ($(document).scrollTop() > obj.header.offset().top && $(document).scrollTop() < (obj.grid.height() - obj.header.height() - obj.grid.find("tr:last").height()) + obj.header.offset().top);
+                return ($(document).scrollTop() > obj.header.offset().top-offsetTop && $(document).scrollTop() < (obj.grid.height() - obj.header.height() - obj.grid.find("tr:last").height()) + obj.header.offset().top);
             }
         }
 
@@ -123,7 +128,7 @@ Version: 1.0.6
                 obj.container.css("position", "absolute");
                 obj.container.css("z-index", "2");
             } else {
-                obj.container.css("top", "0px");
+                obj.container.css("top", offsetTop+"px");
                 obj.container.css("position", "fixed");
             }
         }
