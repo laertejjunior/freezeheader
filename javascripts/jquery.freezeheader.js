@@ -1,12 +1,13 @@
-/* ------------------------------------------------------------------------
+* ------------------------------------------------------------------------
 Class: freezeHeader
 Use:freeze header row in html table
 Example 1:  $('#tableid').freezeHeader();
 Example 2:  $("#tableid").freezeHeader({ 'height': '300px' });
 Example 3:  $("table").freezeHeader();
 Example 4:  $(".table2").freezeHeader();
+Example 5:  $("#tableid").freezeHeader({ 'offset': '50px' });
 Author(s): Laerte Mercier Junior, Larry A. Hendrix
-Version: 1.0.6
+Version: 1.0.7
 -------------------------------------------------------------------------*/
 (function ($) {
     var TABLE_ID = 0;
@@ -116,12 +117,24 @@ Version: 1.0.6
             obj.container.css("visibility", "visible");
 
             if (params && params.height !== undefined) {
-                obj.container.css("top", obj.scroller.offset().top + "px");
+               
+        		if(params.offset !== undefined){
+        			obj.container.css("top", obj.scroller.offset().top + (params.offset.replace("px","") * 1) + "px");
+        		}
+        		else
+        		{
+        			obj.container.css("top", obj.scroller.offset().top + "px");
+        		}
+				
                 obj.container.css("position", "absolute");
+				
             } else if (params && params.scrollListenerEl!== undefined) { 
                 obj.container.css("top", obj.scroller.find("thead > tr").innerHeight() + "px");
                 obj.container.css("position", "absolute");
                 obj.container.css("z-index", "2");
+			} else if (params && params.offset !== undefined) {
+			    obj.container.css("top", params.offset);
+                obj.container.css("position", "fixed");
             } else {
                 obj.container.css("top", "0px");
                 obj.container.css("position", "fixed");
