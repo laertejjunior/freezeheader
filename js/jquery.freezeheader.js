@@ -118,13 +118,13 @@ Version: 1.0.7
 
             if (params && params.height !== undefined) {
                
-				if(params.offset !== undefined){
-					obj.container.css("top", obj.scroller.offset().top + (params.offset.replace("px","") * 1) + "px");
-				}
-				else
-				{
-					obj.container.css("top", obj.scroller.offset().top + "px");
-				}
+		if(params.offset !== undefined){
+			obj.container.css("top", obj.scroller.offset().top + (params.offset.replace("px","") * 1) + "px");
+		}
+		else
+		{
+			obj.container.css("top", obj.scroller.offset().top + "px");
+		}
 				
                 obj.container.css("position", "absolute");
 				
