@@ -71,8 +71,8 @@ Version: 1.0.7
                                 obj.container.css("top", (obj.grid.find("tr:last").offset().top - obj.header.height()) + "px");
                             }
                             else {
+                            	obj.container.css("top", "-250px");
                                 obj.container.css("visibility", "hidden");
-                                obj.container.css("top", "0px");
                                 obj.container.width(0);
                             }
                             copiedHeader = false;
