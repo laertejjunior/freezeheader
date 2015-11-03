@@ -42,7 +42,7 @@ jquery.freezeheader
 <ul>
 <li>Source hosted at <a href="https://github.com/laertejjunior">GitHub</a>
 </li>
-<li>Report issues, questions, feature requests on <a href="https://github.com/laertejjunior/issues">GitHub Issues</a>
+<li>Report issues, questions, feature requests on <a href="https://github.com/laertejjunior/freezeheader/issues">GitHub Issues</a>
 </li>
 </ul><p>Pull requests are very welcome! Make sure your patches are well tested. Please create a topic branch for every separate change you make.</p>
 
