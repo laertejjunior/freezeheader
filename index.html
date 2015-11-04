@@ -1,179 +1,164 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-    <title>Freezeheader by laertejjunior</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<head>
+		<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<script type="text/javascript" src="javascript/jquery.freezeheader.js"></script>
+		<script type="text/javascript" src="javascript/loadData.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				loadData();
+				$("#table1").freezeHeader({
+					height : '300px'
+				});
+				$("#table2").freezeHeader({
+					offset : '50px'
+				});
+				$("#table3").freezeHeader({
+					offset : '50px'
+				});
+				$("#table4").freezeHeader({
+					offset : '50px'
+				});
+			})
+		</script>
+	</head>
+	<body>
 
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Title, Navbars, Menus, etc...</a>
+				</div>
+			</div>
+		</div>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+		<div class="wrapper">
+			<header>
+				<h1>Freezeheader</h1>
+				<p>
+					A simple jquery plugin to freeze header row in html table.
+				</p>
+				<p class="view">
+					<a href="https://github.com/laertejjunior/freezeheader">View the Project on GitHub <small>laertejjunior/freezeheader</small></a>
+				</p>
+				<ul>
+					<li>
+						<a href="https://github.com/laertejjunior/freezeheader/zipball/master">Download <strong>ZIP File</strong></a>
+					</li>
+					<li>
+						<a href="https://github.com/laertejjunior/freezeheader/tarball/master">Download <strong>TAR Ball</strong></a>
+					</li>
+					<li>
+						<a href="https://github.com/laertejjunior/freezeheader">View On <strong>GitHub</strong></a>
+					</li>
+				</ul>
+			</header>
+			<section>
+				<p>
+					<h1><a name="jqueryfreezeheader-" href="#jquerycookie-"> jquery.freezeheader</a></h1>
+				</p>
 
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+				<p>
+					A simple jquery plugin to freeze header row in html table.
+				</p>
+				<h2><a name="installation" href="#installation">Installation</h2>
 
-    <script type="text/javascript" src="javascripts/jquery.freezeheader.js"></script>
-    <script type="text/javascript" src="javascripts/loadData.js"></script>
-    <script type="text/javascript">
-		$(document).ready(function() {
-			loadData();
-			$("#table1").freezeHeader({
-				height : '300px'
-			});
-			$("#table2").freezeHeader({
-				offset : '50px'
-			});
-			$("#table3").freezeHeader({
-				offset : '50px'
-			});
-			$("#table4").freezeHeader({
-				offset : '50px'
-			});
-		})
-    </script>
-</head>
-<body>
+				<p>
+					Include script <em>after</em> the jQuery library (unless you are packaging scripts somehow else):
+				</p>
+				<pre><code>&lt;script src="/path/to/jquery.freezeheader.js"&gt;&lt;/script&gt;
+</code></pre>																												
 
-
-
-    <div class="wrapper">
-
-        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Title, Navbars, Menus, etc...</a>
-                </div>
-            </div>
-        </div>
-
-        <header>
-            <h1>Freezeheader</h1>
-            <p>A simple jquery plugin to freeze header row in html table.</p>
-            <p class="view"><a href="https://github.com/laertejjunior/freezeheader">View the Project on GitHub <small>laertejjunior/freezeheader</small></a></p>
-
-            <ul>
-                <li><a href="https://github.com/laertejjunior/freezeheader/zipball/master">Download <strong>ZIP File</strong></a></li>
-                <li><a href="https://github.com/laertejjunior/freezeheader/tarball/master">Download <strong>TAR Ball</strong></a></li>
-                <li><a href="https://github.com/laertejjunior/freezeheader">View On <strong>GitHub</strong></a></li>
-            </ul>
-        </header>
-        <section>
-            <p>
-                <h1>
-                    <a name="jqueryfreezeheader-" href="#jquerycookie-"></a>
-                    jquery.freezeheader
-                </h1>
-            </p>
-            <p> A simple jquery plugin to freeze header row in html table.</p>
-            <h2>
-                <a name="installation" href="#installation"></a>Installation
-            </h2>
-            <p>Include script <em>after</em> the jQuery library (unless you are packaging scripts somehow else):</p>
-<pre><code>&lt;script src="/path/to/jquery.freezeheader.js"&gt;&lt;/script&gt;
-</code></pre>
-            <h2>
-                <a name="usage" href="#usage"></a>Usage
-            </h2>
-
-            <p>Create a table with fixed header and scroll bar:</p>
-            <div class="highlight">
-                <pre>        <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                <span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">freezeHeader</span><span class="p">({</span> <span class="s1">'height'</span><span class="o">:</span> <span class="s1">'300px'</span> <span class="p">});</span>
-                <span class="p">})</span>
+ <h2><a name="usage" href="#usage">Usage</a></h2>
+				<p>
+					Create a table with fixed header and scroll bar:
+				</p>
+				<div class="highlight">
+					<pre>        <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">freezeHeader</span><span class="p">({</span> <span class="s1">'height'</span><span class="o">:</span> <span class="s1">'300px'</span> <span class="p">});</span>
+        <span class="p">})</span>
 </pre>
-            </div>
-            <h2><a name="demo" href="#demo">Demo</a></h2>
-            <table class="table table-striped" style="min-width: 1000px" id="table1">
-                <thead>
-                    <tr style="background-color:white;">
-                        <th> Culture Name </th>
-                        <th> Display Name </th>
-                        <th> Culture Code </th>
-                        <th> ISO 639x </th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <p>
-                Create a table with fixed header in the top browser:
-            </p>
-            <div class="highlight">
-                <pre>        <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-                <span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">freezeHeader</span><span class="p">(offset : '50px');</span>
-                <span class="p">})</span>
-</pre>
-            </div>
-            <h2><a name="demo" href="#demo">Demo</a></h2>
-            <table class="table table-striped" id="table2">
-                <thead>
-                    <tr style="background-color:white;">
-                        <th> Culture Name </th>
-                        <th> Display Name </th>
-                        <th> Culture Code </th>
-                        <th> ISO 639x </th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <table class="table table-striped" id="table3">
-                <thead class="tableHeader-processed">
-                    <tr style="background-color:white;">
-                        <th colspan="4"><strong>First Table</strong></th>
-                    </tr>
-                    <tr style="background-color:white;">
-                        <th>Language Culture Name</th>
-                        <th>Display Name</th>
-                        <th>Culture Code </th>
-                        <th>ISO 639x Value</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <
-            <table class="table table-striped" id="table4">
-                <thead class="tableHeader-processed">
-                    <tr style="background-color:white;">
-                        <th colspan="4"><strong>fourth Table</strong></th>
-                    </tr>
-                    <tr style="background-color:white;">
-                        <th>Language Culture Name</th>
-                        <th>Display Name</th>
-                        <th>Culture Code </th>
-                        <th>ISO 639x Value</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-            <h2>
-                <a name="development" href="#development"></a>Development
-            </h2>
-            <p></p><ul>
-                <li>
-                    Source hosted at <a href="https://github.com/laertejjunior">GitHub</a>
-                </li>
-                <li>
-                    Report issues, questions, feature requests on <a href="https://github.com/laertejjunior/issues">GitHub Issues</a>
-                </li>
-            </ul><p>Pull requests are very welcome! Make sure your patches are well tested. Please create a topic branch for every separate change you make.</p>
-            <h2>
-                <a name="authors" href="#authors"></a>Authors
-            </h2>
-            <p></p><p><a href="https://github.com/laertejjunior">Laerte Mercier Junior</a></p>
-        </section>
-        <footer>
-            <p>This project is maintained by <a href="https://github.com/laertejjunior">laertejjunior</a></p>
-            <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-        </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
+				</div>
+				<h2><a name="demo" href="#demo">Demo</a></h2>
+				<table class="table table-striped" style="min-width: 1000px" id="table1">
+					<thead>
+						<tr style="background-color:white;">
+							<th> Culture Name </th>
+							<th> Display Name </th>
+							<th> Culture Code </th>
+							<th> ISO 639x </th>
+						</tr>
+					</thead>
+					<tbody>
 
-</body>
+					</tbody>
+				</table>
+
+				<p>
+					Create a table with fixed header in the top browser:
+				</p>
+
+				<div class="highlight">
+					<pre>        <span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+            <span class="nx">$</span><span class="p">(</span><span class="s2">"#tableid"</span><span class="p">).</span><span class="nx">freezeHeader</span><span class="p">(offset : '50px');</span>
+        <span class="p">})</span>
+</pre>
+				</div>
+				<h2><a name="demo" href="#demo">Demo</a></h2>
+
+				<table class="table table-striped"  id="table2">
+					<thead>
+						<tr style="background-color:white;">
+							<th> Culture Name </th>
+							<th> Display Name </th>
+							<th> Culture Code </th>
+							<th> ISO 639x </th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+
+				<table class="table table-striped"  id="table3">
+					<thead class="tableHeader-processed">
+						<tr style="background-color:white;">
+							<th colspan="4"><strong>First Table</strong></th>
+						</tr>
+						<tr style="background-color:white;">
+							<th>Language Culture Name</th>
+							<th>Display Name</th>
+							<th>Culture Code </th>
+							<th>ISO 639x Value</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+
+				<
+				<table class="table table-striped"  id="table4">
+					<thead class="tableHeader-processed">
+						<tr style="background-color:white;">
+							<th colspan="4"><strong>fourth Table</strong></th>
+						</tr>
+						<tr style="background-color:white;">
+							<th>Language Culture Name</th>
+							<th>Display Name</th>
+							<th>Culture Code </th>
+							<th>ISO 639x Value</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+	</body>
 </html>
