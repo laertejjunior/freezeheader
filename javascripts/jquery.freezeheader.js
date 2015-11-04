@@ -40,6 +40,7 @@
 					obj.closeDivScroll = '</div>';
 				}
 
+
 				obj.header = obj.grid.find('thead');
 
 				if (params && params.height !== undefined) {
@@ -59,6 +60,17 @@
 					}
 
 					obj.container = $('#hd' + obj.id);
+
+
+					if (isNaN(obj.grid.css("zIndex"))) {
+					    obj.container.css("zIndex", -1);
+					    obj.grid.css("zIndex", -2);
+					    obj.grid.css("position", "relative");
+					}
+					else {
+					    obj.container.css("zIndex", parseInt(obj.grid.css("zIndex")) + 1);
+					}
+					
 
 					if (obj.header.offset() != null) {
 						if (limiteAlcancado(obj, params)) {
@@ -151,4 +163,3 @@
 
 	};
 })(jQuery);
-
