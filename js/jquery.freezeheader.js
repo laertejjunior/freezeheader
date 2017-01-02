@@ -112,7 +112,7 @@ Version: 1.0.7
                 }
             });
 
-            tabela.append('<thead>' + obj.header.html() + '</thead>');
+            tabela.append(obj.header.clone(true));
 
             obj.container.append(tabela);
             obj.container.width(obj.header.width());
