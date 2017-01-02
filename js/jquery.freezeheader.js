@@ -88,7 +88,15 @@ Version: 1.0.7
                 return (obj.header.offset().top <= obj.scroller.offset().top);
             }
             else {
-                return ($(document).scrollTop() > obj.header.offset().top && $(document).scrollTop() < (obj.grid.height() - obj.header.height() - obj.grid.find("tr:last").height()) + obj.header.offset().top);
+                var top = obj.header.offset().top;
+                if (params) {
+                    if (params.offset !== undefined) {
+                       top -= parseInt(params.offset.replace('px',''), 10);
+                    }
+                }
+
+                var gridHeight = (obj.grid.height() - obj.header.height() - obj.grid.find("tr:last").height()) + obj.header.offset().top;
+                return ($(document).scrollTop() > top && $(document).scrollTop() < gridHeight);
             }
         }
 
