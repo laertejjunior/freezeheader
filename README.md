@@ -33,6 +33,19 @@ jquery.freezeheader
         })
 ```
 
+<p>Create a table with fixed header and scroll bar:</p>
+
+```$(document).ready(function () {
+            $("#tableid")freezeHeader({'offset' : '51px'})
+            .on("freeze:on", function( event ) {
+                    //do something
+            }).on( "freeze:off", function( event ) {
+                    //do something
+            });
+        })
+```
+
+
 <h2>
 <a name="demo" class="anchor" href="#demo"><span class="mini-icon mini-icon-link"></span></a>Demo</h2>
 <p><strong><a href="http://laertejjunior.github.io/freezeheader/">http://laertejjunior.github.io/freezeheader/</a></strong> </p>
