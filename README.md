@@ -35,7 +35,8 @@ jquery.freezeheader
 
 <p>Create a table with fixed header and scroll bar:</p>
 
-```$(document).ready(function () {
+```javascript
+        $(document).ready(function () {
             $("#tableid")freezeHeader({'offset' : '51px'})
             .on("freeze:on", function( event ) {
                     //do something
