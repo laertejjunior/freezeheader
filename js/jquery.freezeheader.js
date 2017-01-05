@@ -7,7 +7,7 @@ Example 3:  $("table").freezeHeader();
 Example 4:  $(".table2").freezeHeader();
 Example 5:  $("#tableid").freezeHeader({ 'offset': '50px' });
 Author(s): Laerte Mercier Junior, Larry A. Hendrix
-Version: 1.0.7
+Version: 1.0.8
 -------------------------------------------------------------------------*/
 (function ($) {
     var TABLE_ID = 0;
@@ -59,6 +59,7 @@ Version: 1.0.7
 
                     if (obj.header.offset() != null) {
                         if (limiteAlcancado(obj, params)) {
+                            elem.trigger("freeze:on");
                             if (!copiedHeader) {
                                 cloneHeaderRow(obj);
                                 copiedHeader = true;
@@ -71,6 +72,7 @@ Version: 1.0.7
                                 obj.container.css("top", (obj.grid.find("tr:last").offset().top - obj.header.height()) + "px");
                             }
                             else {
+                                elem.trigger("freeze:off");
                                 obj.container.css("visibility", "hidden");
                                 obj.container.css("top", "0px");
                                 obj.container.width(0);
@@ -91,7 +93,7 @@ Version: 1.0.7
                 var top = obj.header.offset().top;
                 if (params) {
                     if (params.offset !== undefined) {
-                       top -= parseInt(params.offset.replace('px',''), 10);
+                       top -= parseInt(params.offset.replace('px',''),10);
                     }
                 }
 
@@ -112,7 +114,9 @@ Version: 1.0.7
                 }
             });
 
-            tabela.append('<thead>' + obj.header.html() + '</thead>');
+            var clone = obj.header.clone(true);
+            
+            clone.appendTo(tabela);
 
             obj.container.append(tabela);
             obj.container.width(obj.header.width());
@@ -126,22 +130,22 @@ Version: 1.0.7
 
             if (params && params.height !== undefined) {
                
-		if(params.offset !== undefined){
-			obj.container.css("top", obj.scroller.offset().top + (params.offset.replace("px","") * 1) + "px");
-		}
-		else
-		{
-			obj.container.css("top", obj.scroller.offset().top + "px");
-		}
-				
-                obj.container.css("position", "absolute");
-				
+                if(params.offset !== undefined){
+                    obj.container.css("top", obj.scroller.offset().top + (params.offset.replace("px","") * 1) + "px");
+                }
+                else
+                {
+                    obj.container.css("top", obj.scroller.offset().top + "px");
+                }
+                
+            obj.container.css("position", "absolute");
+                
             } else if (params && params.scrollListenerEl!== undefined) { 
                 obj.container.css("top", obj.scroller.find("thead > tr").innerHeight() + "px");
                 obj.container.css("position", "absolute");
                 obj.container.css("z-index", "2");
-			} else if (params && params.offset !== undefined) {
-			    obj.container.css("top", params.offset);
+            } else if (params && params.offset !== undefined) {
+                obj.container.css("top", params.offset);
                 obj.container.css("position", "fixed");
             } else {
                 obj.container.css("top", "0px");
