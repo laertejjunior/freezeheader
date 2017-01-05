@@ -33,7 +33,7 @@ jquery.freezeheader
         })
 ```
 
-<p>Create a table with fixed header and scroll bar:</p>
+<p>Create a table with fixed header and offset:</p>
 
 ```javascript
         $(document).ready(function () {
