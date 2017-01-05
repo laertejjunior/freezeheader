@@ -40,7 +40,7 @@ jquery.freezeheader
             $("#tableid")freezeHeader({'offset' : '51px'})
             .on("freeze:on", function( event ) {
                     //do something
-            }).on( "freeze:off", function( event ) {
+            }).on("freeze:off", function( event ) {
                     //do something
             });
         })
