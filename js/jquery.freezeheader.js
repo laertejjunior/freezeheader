@@ -43,9 +43,13 @@ Version: 1.0.8
                     }
                 }
 
-                obj.scroller = params && params.height !== undefined
-                   ? $('#hdScroll' + obj.id)
-                   : $(window);
+                if (params && params.height !== undefined) {
+                    obj.scroller = $('#hdScroll' + obj.id);
+                }else if (params && params.scroller !== undefined) {
+                    obj.scroller = $(params.scroller);
+                } else {
+                    obj.scroller = $(window);
+                }
 
                 if (params && params.scrollListenerEl !== undefined) {
                     obj.scroller = params.scrollListenerEl;
