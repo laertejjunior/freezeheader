@@ -24,6 +24,7 @@ Version: 1.0.8
                     grid: elem,
                     container: null,
                     header: null,
+                    HeaderStyle: null,
                     divScroll: null,
                     openDivScroll: null,
                     closeDivScroll: null,
@@ -35,7 +36,11 @@ Version: 1.0.8
                     obj.closeDivScroll = '</div>';
                 }
 
-                obj.header = obj.grid.find('thead');
+                if (params && params.HeaderStyle !== undefined) {
+                    obj.header = obj.grid.find('.' + params.HeaderStyle);
+                } else {
+                    obj.header = obj.grid.find('thead');
+                }
 
                 if (params && params.height !== undefined) {
                     if ($('#hdScroll' + obj.id).length == 0) {
