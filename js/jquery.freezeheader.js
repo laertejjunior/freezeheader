@@ -151,6 +151,12 @@ Version: 1.0.8
                 obj.container.css("top", "0px");
                 obj.container.css("position", "fixed");
             }
+
+            if (params && params.onCenter !== undefined) {
+				obj.container.css("left", "0px");
+				obj.container.css("right", "0px");
+				obj.container.css("margin", " 0 auto");
+			}
         }
 
         return this.each(function (i, e) {
